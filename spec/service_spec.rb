@@ -84,6 +84,3 @@ describe 'check cars wash machines availability' do
 		end
 	end
 end
-
-
-
