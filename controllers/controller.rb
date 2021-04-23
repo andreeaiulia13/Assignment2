@@ -114,18 +114,20 @@ def make_new_appointment
   min = gets.chomp.to_i
   puts ''
 	
+  time = Time.new(2021, month, day, hour, min, 0)
+
   case 
-  when Time.new(2021, month, day, hour, min, 0) < Time.now
+  when time < Time.now
     puts "Please enter a valid data, we can't wash your car in the past.."
 	
-  when check_opening_time(Time.new(2021, month, day, hour, min, 0))
+  when check_opening_time(time)
     show_schedule
 		
-  when check_schedule(Time.new(2021, month, day, hour, min, 0))
+  when check_schedule(time)
     puts 'There is no available car wash machine at this moment. Please check our appointments schedule and try another date or time'
 	
   else 
-    add_appointment(Time.new(2021, month, day, hour, min, 0))
+    add_appointment(time)
 	end
 
   rescue ArgumentError
