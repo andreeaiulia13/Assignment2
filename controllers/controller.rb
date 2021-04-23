@@ -67,8 +67,20 @@ def add_appointment_now
 end
 
 def show_appointments 
+  puts "Choose a date"
+
+  puts "What month?"
+  month = gets.chomp.to_i
+
+  puts "What day?"
+  day = gets.chomp.to_i
+  
+  puts ''
+  puts "#{day}.#{month}.2021"
+  
   $cars.each do |car| 
-    puts "#{car.drop_time.strftime("%d %B %Y %H:%M")} - #{car.pickup_time.strftime("%H:%M")}" if car.pickup_time > Time.now
+    next unless ((car.drop_time.month == month) && (car.drop_time.day == day))
+      puts "#{car.drop_time.strftime("%H:%M")} - #{car.pickup_time.strftime("%H:%M")}" if car.pickup_time > Time.now
   end
 end
 
@@ -132,4 +144,36 @@ def make_new_appointment
 
   rescue ArgumentError
     puts 'Please enter valid data and time. Month 1-12, Day 1-31, Hour 1-24, Minutes 0-59'
+end
+
+def pick_up_car
+  puts 'What is your license plate number?'
+  license_number = gets.chomp
+  
+  is_license_in_list = false
+  
+  $cars.each do |car|
+    next unless car.license_plate == license_number  
+      is_license_in_list = true
+      
+      case
+      when (car.pickup_time <= Time.now)
+        puts "Please confirm the pick up by writing your name:"
+        name = gets.chomp
+
+        if (name == car.user_name)
+          $cars.delete_if { |car| car.license_plate == license_number}
+          puts "Dear, #{car.user_name}, you successfuly picked up your car!"
+        
+        else 
+          puts "The name is not matching the license plate number! You can't pick up this car!"
+        end
+
+      when car.pickup_time > Time.now
+        puts "Dear, #{car.user_name}, you can pick up your car starting with #{car.pickup_time.strftime("%d %B %Y %H:%M")}"
+      end
+    
+    end
+  puts "There is no car with this license plate number!" if (is_license_in_list == false)
+
 end

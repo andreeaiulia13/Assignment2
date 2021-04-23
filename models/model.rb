@@ -12,13 +12,13 @@ class Car
   end
 end
 
-$cars << Car.new('Isabella Kramer', Time.new(2021, 04, 23, 8, 30, 0), 'CD80519')
-$cars << Car.new('Benn Davie', Time.new(2021, 04, 23, 9, 30, 0),'AM59232')
-$cars << Car.new('Lillian Hewitt', Time.new(2021, 04, 23, 11, 30, 0), 'BB13822')
-$cars << Car.new('Amelia Cherry', Time.new(2021, 04, 23, 11, 45, 0), 'ZK05821')
-$cars << Car.new('Benn Davie', Time.new(2021, 04, 23, 15, 00, 0), 'AN23001')
-$cars << Car.new('Adam Tristin', Time.new(2021, 04, 24, 14, 00, 0), 'TN41312')
-$cars << Car.new('Bernard Warren', Time.new(2021, 04, 24, 8, 00, 0), 'CF71829')
+$cars << Car.new('Isabella Kramer', Time.new(2021, 4, 23, 8, 30, 0), 'CD80519')
+$cars << Car.new('Benn Davie', Time.new(2021, 4, 23, 9, 30, 0),'AM59232')
+$cars << Car.new('Lillian Hewitt', Time.new(2021, 4, 23, 11, 15, 0), 'BB13822')
+$cars << Car.new('Amelia Cherry', Time.new(2021, 4, 23, 11, 45, 0), 'ZK05821')
+$cars << Car.new('Benn Davie', Time.new(2021, 4, 23, 15, 30, 0), 'AN23001')
+$cars << Car.new('Adam Tristin', Time.new(2021, 4, 24, 14, 00, 0), 'TN41312')
+$cars << Car.new('Bernard Warren', Time.new(2021, 4, 24, 8, 00, 0), 'CF71829')
 
 def show_schedule 
   puts 'OPENING TIMES'

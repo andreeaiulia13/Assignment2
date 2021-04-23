@@ -8,7 +8,7 @@ puts '              Clean cars run better'
 
 option = 0
 
-while(option != 6)
+while(option != 7)
 
   puts ''
   puts 'How can we help you?'
@@ -17,9 +17,10 @@ while(option != 6)
   puts '3. I want to check my car cleaning status'
   puts '4. I want to check the car cleaning service schedule'
   puts '5. I want to check the car cleaning service appointments'
-  puts '6. Exit'
+  puts '6. I want to pick up my car'
+  puts '7. Exit'
   puts ''
-
+  
   option = gets.chomp
 
   case option
@@ -35,16 +36,19 @@ while(option != 6)
   when '4'
     show_schedule
 
+  when '6'
+    pick_up_car
+
   when '5'
     show_appointments
 
-  when '6'
+  when '7'
     puts 'Thank you for choosing our car cleaning service.'
     puts "We are waiting for you to come back, don't forget: A clean car is a happy car"
     puts 'Have a good one!'
     break
 
   else
-    puts 'Please enter a number from 1-6 (1, 2, 3, 4, 5, 6)'
+    puts 'Please enter a number from 1-7 (1, 2, 3, 4, 5, 6,7)'
   end
 end
